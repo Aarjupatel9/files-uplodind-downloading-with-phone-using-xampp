@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Upload</title>
+    <script>
+        function open_media(){
+
+            document.location.href = "server-file/";
+        }
+    </script>
+
+    <style>
+        body {
+            font-size: xx-large;
+        }
+        button {
+            font-size: xx-large;
+        }
+
+        .in1 {
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+       
+        <form class="f1" action="save_mp4.php" method="post" enctype="multipart/form-data">
+            <label for="file"><span>Choose File to Upload :</span></label>
+            <input class="in1" type="file" name="file" id="file" />
+            <br><br><br>
+            <input class="in1" type="submit" name="submit" value="Submit" />
+        </form>
+
+        <br><br><br><br><br><br>
+
+        To download available file click here  : 
+        <button type="button" onclick="open_media()" >media </button>
+
+
+
+
+    </div>
+</body>
+
+</html>
