@@ -1,19 +1,16 @@
 <?php
 
-$allowedExts = array("jpg", "jpeg", "gif", "png", "mp3", "mp4", "wma", "mkv");
+$allowedExts = array("jpg", "jpeg", "gif", "png", "mp4", "mkv");
 $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 
-if ((($_FILES["file"]["type"] == "video/mp4")
-        || ($_FILES["file"]["type"] == "audio/mp3")
-        || ($_FILES["file"]["type"] == "video/x-matroska")
-        || ($_FILES["file"]["type"] == "audio/wma")
-        || ($_FILES["file"]["type"] == "image/pjpeg")
+if ((($_FILES["file"]["type"] == "image/pjpeg")
         || ($_FILES["file"]["type"] == "image/gif")
+        || ($_FILES["file"]["type"] == "video/mp4")
+        || ($_FILES["file"]["type"] == "video/x-matroska")
         || ($_FILES["file"]["type"] == "image/jpeg"))
-    && ($_FILES["file"]["size"] < 9000000000000000)
+    && ($_FILES["file"]["size"] < 900000000000000)
     && in_array($extension, $allowedExts)
-    ) 
-{
+) {
     if ($_FILES["file"]["error"] > 0) {
         echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
     } else {
@@ -32,9 +29,8 @@ if ((($_FILES["file"]["type"] == "video/mp4")
             echo "Stored at : " . "uploaded_file/" . $_FILES["file"]["name"];
         }
     }
-}
- else {
-     echo "File type : " . $_FILES["file"]["type"] . "<br>";
+} else {
+    echo "File type : " . $_FILES["file"]["type"] . "<br>";
     echo "Invalid file" . "<br>";
     echo "Extention in the file is : " . $extension . "<br>";
     echo "size of the file is " .  $_FILES["file"]["size"] . "<br>";
